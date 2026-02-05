@@ -2,9 +2,9 @@ import pytest
 from selenium import webdriver
 
 @pytest.fixture
-def browser():
+def driver():
     print("\nstart browser for test..")
-    browser = webdriver.Chrome()
-    yield browser
+    driver = webdriver.Chrome()
+    yield driver
     print("\nquit browser..")
-    browser.quit()
+    driver.quit()
