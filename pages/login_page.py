@@ -1,6 +1,8 @@
 from pages.base_page import BasePage
 from selenium.webdriver.common.by import By
 class LoginPage(BasePage):
+    URL = "https://www.saucedemo.com/"
+
     USERNAME_INPUT = (By.XPATH, "//input[@id='user-name']")
     PASSWORD_INPUT = (By.XPATH, "//input[@id='password']")
     LOGIN_BUTTON = (By.XPATH, "//input[@id='login-button']")

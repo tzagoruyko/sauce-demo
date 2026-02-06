@@ -3,7 +3,7 @@ from pages.inventory_page import InventoryPage
 
 def test_success_login(driver):
     login_page = LoginPage(driver)
-    login_page.open_page("https://www.saucedemo.com/")
+    login_page.open_page(login_page.URL)
     login_page.login("standard_user", "secret_sauce")
 
     inventory_page = InventoryPage(driver)
