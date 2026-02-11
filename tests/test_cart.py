@@ -1,7 +1,7 @@
 from pages.cart_page import CartPage
 
-def test_add_to_cart(logged_in_user):
-    inventory_page = logged_in_user
+def test_add_to_cart(logged_in_standard_user):
+    inventory_page = logged_in_standard_user
     inventory_page.add_to_cart()
 
     assert inventory_page.cart_counter_text() == "1", "Счетчик корзины должен показывать 1"

@@ -2,6 +2,7 @@ import pytest
 from selenium import webdriver
 from pages.login_page import LoginPage
 from pages.inventory_page import InventoryPage
+from config.config import STANDARD_USER, PASSWORD
 
 @pytest.fixture
 def driver():
@@ -12,8 +13,8 @@ def driver():
     driver.quit()
 
 @pytest.fixture
-def logged_in_user(driver):
+def logged_in_standard_user(driver):
     login_page = LoginPage(driver)
     login_page.open_page(login_page.URL)
-    login_page.login("standard_user", "secret_sauce")
+    login_page.login(STANDARD_USER, PASSWORD)
     return InventoryPage(driver)

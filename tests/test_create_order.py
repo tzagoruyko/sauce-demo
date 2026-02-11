@@ -3,8 +3,8 @@ from pages.checkout_step_one_page import CheckoutStepOnePage
 from pages.checkout_step_two_page import CheckoutStepTwoPage
 from pages.checkout_complete_page import CheckoutComplitePage
 
-def test_create_order(logged_in_user):
-    inventory_page = logged_in_user
+def test_create_order(logged_in_standard_user):
+    inventory_page = logged_in_standard_user
     inventory_page.add_to_cart()
 
     cart_page = CartPage(inventory_page.driver)
