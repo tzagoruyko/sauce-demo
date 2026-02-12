@@ -5,6 +5,7 @@ from config.config import STANDARD_USER, PROBLEM_USER, PERFORMANCE_GLITCH_USER, 
     ERROR_USER, VISUAL_USER, PASSWORD
 
 @pytest.mark.positive
+@pytest.mark.parametrize("driver", ["incognito-maximizedp"], indirect=True)
 @pytest.mark.parametrize("username", [STANDARD_USER, PROBLEM_USER, PERFORMANCE_GLITCH_USER,
                                       ERROR_USER, VISUAL_USER])
 def test_success_login(driver, username):

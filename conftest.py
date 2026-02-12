@@ -6,10 +6,13 @@ from pages.inventory_page import InventoryPage
 from config.config import STANDARD_USER, PASSWORD
 
 @pytest.fixture
-def driver():
+def driver(request):
     options = Options()
-    options.add_argument("--incognito")
-    options.add_argument("--start-maximized")
+
+    if getattr(request, "param", None) == "incognito-maximized":
+        options.add_argument("--incognito")
+        options.add_argument("--start-maximized")
+
     print("\nstart browser for test..")
     driver = webdriver.Chrome(options=options)
     yield driver
