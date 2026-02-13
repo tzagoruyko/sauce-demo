@@ -8,6 +8,7 @@ class InventoryPage(BasePage):
     ADD_TO_CART_BUTTON = (By.XPATH, "//button[@id='add-to-cart-sauce-labs-backpack']")
     CART_HEADER_ICON = (By.XPATH, "//*[@class='shopping_cart_link']")
     CART_HEADER_COUNTER = (By.XPATH, "//*[@class='shopping_cart_badge']")
+    PRODUCT_LINK = (By.XPATH, "//*[@id='item_0_title_link']")
 
     def inventory_list_is_displayed(self):
         return self.is_displayed(self.INVENTORY_LIST)
@@ -17,6 +18,9 @@ class InventoryPage(BasePage):
 
     def cart_counter_text(self):
         return self.element_text(self.CART_HEADER_COUNTER)
+
+    def open_product_page(self):
+        self.click(self.PRODUCT_LINK)
 
 
 
