@@ -5,7 +5,7 @@ from config.config import STANDARD_USER, PROBLEM_USER, PERFORMANCE_GLITCH_USER, 
     ERROR_USER, VISUAL_USER, PASSWORD
 
 @pytest.mark.positive
-@pytest.mark.parametrize("driver", ["incognito-maximizedp"], indirect=True)
+@pytest.mark.parametrize("driver", ["incognito-maximized"], indirect=True)
 @pytest.mark.parametrize("username", [STANDARD_USER, PROBLEM_USER, PERFORMANCE_GLITCH_USER,
                                       ERROR_USER, VISUAL_USER])
 def test_success_login(driver, username):
@@ -16,9 +16,10 @@ def test_success_login(driver, username):
     inventory_page = InventoryPage(driver)
     assert inventory_page.get_current_url() == inventory_page.URL, "Должна была открыться страница каталога"
 
+@pytest.mark.incognito
 @pytest.mark.negative
-def test_incorrect_password(driver):
-    login_page = LoginPage(driver)
+def test_incorrect_password(driver_incognito):
+    login_page = LoginPage(driver_incognito)
     login_page.open_page(login_page.URL)
     login_page.login(STANDARD_USER, "incorrect password")
 

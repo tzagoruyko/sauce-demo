@@ -20,6 +20,20 @@ def driver(request):
     driver.quit()
 
 @pytest.fixture
+def driver_incognito(request):
+    options = Options()
+
+    if request.node.get_closest_marker("incognito"):
+        options.add_argument("--incognito")
+        options.add_argument("--start-maximized")
+
+    print("\nstart browser for test..")
+    driver = webdriver.Chrome(options=options)
+    yield driver
+    print("\nquit browser..")
+    driver.quit()
+
+@pytest.fixture
 def logged_in_standard_user(driver):
     login_page = LoginPage(driver)
     login_page.open_page(login_page.URL)
