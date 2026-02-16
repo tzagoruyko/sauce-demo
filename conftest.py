@@ -34,8 +34,8 @@ def driver_incognito(request):
     driver.quit()
 
 @pytest.fixture
-def logged_in_standard_user(driver):
-    login_page = LoginPage(driver)
+def logged_in_standard_user(driver_incognito):
+    login_page = LoginPage(driver_incognito)
     login_page.open_page(login_page.URL)
     login_page.login(STANDARD_USER, PASSWORD)
-    return InventoryPage(driver)
+    return InventoryPage(driver_incognito)
