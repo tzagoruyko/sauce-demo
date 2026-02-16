@@ -32,6 +32,7 @@ def test_remove_from_cart_from_cart_page(logged_in_standard_user):
 
     cart_page = CartPage(inventory_page.driver)
     cart_page.remove_from_cart()
+    assert cart_page.cart_item_is_not_displayed(), "Карточка товара должна мсчезнуть"
     assert cart_page.header.cart_counter_is_not_displayed(),  "Счётчик корзины должен исчезнуть"
 
 

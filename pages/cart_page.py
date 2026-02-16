@@ -15,6 +15,9 @@ class CartPage(BasePage):
     def cart_item_is_displayed(self):
         return self.is_displayed(self.CART_ITEM)
 
+    def cart_item_is_not_displayed(self):
+        return self.element_is_not_displayed(self.CART_ITEM)
+
     def click_checkout(self):
         self.click(self.CHECKOUT_BUTTON)
 
