@@ -24,6 +24,9 @@ class BasePage:
     def is_displayed(self, locator):
         return self.find_element(locator).is_displayed()
 
+    def element_is_not_displayed(self, locator):
+        return self.wait.until(EC.invisibility_of_element_located(locator))
+
     def element_text(self, locator):
         return self.find_element(locator).text
 

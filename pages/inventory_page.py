@@ -7,6 +7,7 @@ class InventoryPage(BasePage):
 
     INVENTORY_LIST = (By.XPATH, "//*[@class='inventory_list']")
     ADD_TO_CART_BUTTON = (By.XPATH, "//button[@id='add-to-cart-sauce-labs-backpack']")
+    REMOVE_FROM_CART_BUTTON = (By.XPATH, "//button[@id='remove-sauce-labs-backpack']")
     PRODUCT_LINK = (By.XPATH, "//*[@id='item_0_title_link']")
     PRODUCT_NAME = (By.XPATH, "//*[@id='item_0_title_link']/*[@class='inventory_item_name ']")
     PRODUCT_DESCRIPTION = (By.XPATH, "//*[@class='inventory_item'][2]//*[@class='inventory_item_desc']")
@@ -30,6 +31,9 @@ class InventoryPage(BasePage):
 
     def add_to_cart(self):
         self.click(self.ADD_TO_CART_BUTTON)
+
+    def remove_from_cart(self):
+        self.click(self.REMOVE_FROM_CART_BUTTON)
 
     def open_product_page(self):
         self.click(self.PRODUCT_LINK)

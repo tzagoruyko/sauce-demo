@@ -11,5 +11,9 @@ class Header(BasePage):
     def cart_counter_text(self):
         return self.element_text(self.CART_HEADER_COUNTER)
 
+    def cart_counter_is_not_displayed(self):
+        return self.element_is_not_displayed(self.CART_HEADER_COUNTER)
+
     def open_cart_page(self):
         self.click(self.CART_HEADER_ICON)
+
