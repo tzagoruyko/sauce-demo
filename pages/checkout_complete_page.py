@@ -8,7 +8,6 @@ class CheckoutComplitePage(BasePage):
     COMPLETE_HEADER = (By.XPATH, "//*[@class='complete-header']")
     COMPLETE_TEXT = (By.XPATH, "//*[@class='complete-text']")
 
-
     def checkout_complete_container_is_displayed(self):
         return self.is_displayed(self.CHECKOUT_COMPLETE_CONTAINER)
 
