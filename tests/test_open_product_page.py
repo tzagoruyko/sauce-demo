@@ -1,5 +1,4 @@
 import pytest
-from pages.inventory_page import InventoryPage
 from pages.product_page import ProductPage
 
 @pytest.mark.incognito

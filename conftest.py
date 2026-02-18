@@ -9,9 +9,9 @@ from config.config import STANDARD_USER, PASSWORD
 def driver(request):
     options = Options()
 
-    if getattr(request, "param", None) == "incognito-maximized":
+    if getattr(request, "param", None) == "incognito-headless":
         options.add_argument("--incognito")
-        options.add_argument("--start-maximized")
+        options.add_argument("--headless")
 
     print("\nstart browser for test..")
     driver = webdriver.Chrome(options=options)
@@ -25,7 +25,7 @@ def driver_incognito(request):
 
     if request.node.get_closest_marker("incognito"):
         options.add_argument("--incognito")
-        options.add_argument("--start-maximized")
+        options.add_argument("--headless")
 
     print("\nstart browser for test..")
     driver = webdriver.Chrome(options=options)

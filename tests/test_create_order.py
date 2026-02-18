@@ -1,8 +1,10 @@
+import pytest
 from pages.cart_page import CartPage
 from pages.checkout_step_one_page import CheckoutStepOnePage
 from pages.checkout_step_two_page import CheckoutStepTwoPage
 from pages.checkout_complete_page import CheckoutComplitePage
 
+@pytest.mark.incognito
 def test_create_order(logged_in_standard_user):
     inventory_page = logged_in_standard_user
     inventory_page.add_to_cart()

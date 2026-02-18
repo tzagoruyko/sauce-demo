@@ -2,6 +2,7 @@ import pytest
 from pages.cart_page import CartPage
 from pages.product_page import ProductPage
 
+@pytest.mark.incognito
 @pytest.mark.add_to_cart
 def test_add_to_cart_from_inventory_page(logged_in_standard_user):
     inventory_page = logged_in_standard_user
@@ -14,6 +15,7 @@ def test_add_to_cart_from_inventory_page(logged_in_standard_user):
     cart_page = CartPage(inventory_page.driver)
     assert cart_page.cart_item_is_displayed(), "Добавленный товар не отображается в корзине"
 
+@pytest.mark.incognito
 @pytest.mark.add_to_cart
 def test_add_to_cart_from_product_page(logged_in_standard_user):
     inventory_page = logged_in_standard_user
