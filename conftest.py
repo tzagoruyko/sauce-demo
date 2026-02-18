@@ -13,10 +13,8 @@ def driver(request):
         options.add_argument("--incognito")
         options.add_argument("--headless")
 
-    print("\nstart browser for test..")
     driver = webdriver.Chrome(options=options)
     yield driver
-    print("\nquit browser..")
     driver.quit()
 
 @pytest.fixture
@@ -27,10 +25,8 @@ def driver_incognito(request):
         options.add_argument("--incognito")
         options.add_argument("--headless")
 
-    print("\nstart browser for test..")
     driver = webdriver.Chrome(options=options)
     yield driver
-    print("\nquit browser..")
     driver.quit()
 
 @pytest.fixture

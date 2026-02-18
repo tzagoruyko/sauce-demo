@@ -1,5 +1,6 @@
 from pages.base_page import BasePage
 from selenium.webdriver.common.by import By
+import allure
 class LoginPage(BasePage):
     URL = "https://www.saucedemo.com/"
 
@@ -8,6 +9,7 @@ class LoginPage(BasePage):
     LOGIN_BUTTON = (By.XPATH, "//input[@id='login-button']")
     ERROR_MESSAGE = (By.XPATH, "//*[@data-test='error']")
 
+    @allure.step("Ввести логин, пароль и нажать кнопку Регистрации")
     def login(self, username, password):
         self.send_keys(self.USERNAME_INPUT, username)
         self.send_keys(self.PASSWORD_INPUT, password)
